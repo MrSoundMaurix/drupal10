@@ -258,7 +258,9 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+
+$settings['config_sync_directory'] = '../conf/drupal/config';
+
 
 /**
  * Settings:
