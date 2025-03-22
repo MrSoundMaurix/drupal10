@@ -40,6 +40,12 @@
         },
         "sort-packages": true
     },
+    "autoload-dev":
+    {
+        "files": [
+            "vendor/lullabot/drainpipe/scaffold/env/dotenv.php"
+        ]
+    },
     "extra": {
         "drupal-scaffold": {
             "locations": {
@@ -97,6 +103,9 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "drainpipe": {
+            "github": []
         }
     },
     "require-dev": {
