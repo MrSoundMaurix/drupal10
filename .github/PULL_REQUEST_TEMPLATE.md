@@ -68,5 +68,5 @@ None, automated tests are fine.
 
 <!--  If there is something more than the automated steps, please specifiy deploy instructions. -->
 <!--
-## Deployment instructions
+## Deployment instructions for Rene
 -->
