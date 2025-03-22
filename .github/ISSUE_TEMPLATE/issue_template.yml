@@ -1,0 +1,88 @@
+name: General Issue Template
+description: Template for bug fixes, improvements, features, and updates.
+title: "[Request] - Provide a concise title here"
+labels:
+  - maintenance
+  - enhancement
+body:
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What kind of request is this?
+      description: Select the type of request
+      options:
+        - Bug fixes (non-breaking change which fixes an issue)
+        - Improvements (misc. changes to existing features, docs)
+        - Features (non-breaking change which adds functionality)
+        - Updates (new versions of included code)
+      default: 0
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why does this need to be done?
+      description: Describe the motivation or problem. Mention related issues, PRs, Slack threads, or what inspired this issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Additional Details
+      description: Add more detail if complex. Where is this happening? Who is affected? What is happening, and what should happen?
+      value: |
+        - **Where is this happening?** Describe the location or context.
+        - **Who is this affecting?** Mention the impacted users.
+        - **What is happening?** Briefly outline the current situation.
+        - **What should happen?** Describe the expected outcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_resolution
+    attributes:
+      label: Proposed Resolution
+      description: Describe the proposed solution, rationale, and any alternative workarounds.
+    validations:
+      required: false
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Remaining Tasks
+      description: "List any remaining tasks here. For example: - [ ] Enable sample module"
+      value: |
+        - [ ] Task 1
+        - [ ] Task 2
+    validations:
+      required: false
+
+  - type: textarea
+    id: bug_info
+    attributes:
+      label: Bug Information
+      description: For bugs, include OS, Browser, Useful information to reproduce the issue.
+      value: |
+        - Operating System
+        - Specify the browser if relevant to the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to Reproduce
+      description: List detailed steps for reproducing the issue
+      value: |
+        - Go here
+        - You should see
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_messages
+    attributes:
+      label: Error Messages (if applicable)
+      description: Include relevant log snippets or error messages here.
+    validations:
+      required: false
