@@ -7,19 +7,19 @@ set -eux
 echo "Building..."
 
 # Instala usando perfil minimal
-drush site:install minimal --account-name=admin --account-pass=admin -y
+./vendor/bin/drush site:install minimal --account-name=admin --account-pass=admin -y
 
 # Aplica el UUID exportado
 uuid=$(grep uuid conf/drupal/config/system.site.yml | awk '{print $2}')
-drush cset system.site uuid "$uuid" -y
+./vendor/bin/drush cset system.site uuid "$uuid" -y
 
-# Exporta para forzar que tome el nuevo UUID como válido
-drush config:export -y
+# Forzar que Drupal reconozca el nuevo UUID
+./vendor/bin/drush config:export -y
 
-# Elimina entidades conflictivas (si existen)
-drush entity:delete shortcut_set || true
-drush entity:delete shortcut || true
+# Elimina entidades conflictivas si existen
+./vendor/bin/drush entity:delete shortcut_set || true
+./vendor/bin/drush entity:delete shortcut || true
 
-# Ejecuta el build y update
+# Ejecuta task
 ./vendor/bin/task build
 ./vendor/bin/task update
