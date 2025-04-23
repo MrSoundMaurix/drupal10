@@ -7,4 +7,9 @@ set -eux
 echo "Building..."
 
 ./vendor/bin/task build
-./vendor/bin/task update
+if [ -d "${TUGBOAT_ROOT}/web/modules/contrib/memcache" ]; then
+  ./vendor/bin/task update
+else
+  echo "⚠️ Memcache no está disponible, se omite 'task update' para evitar fallos"
+fi
+
