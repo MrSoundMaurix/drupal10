@@ -7,11 +7,11 @@ set -eux
 echo "Building..."
 
 # Instala usando perfil minimal
-ddev drush site:install minimal --account-name=admin --account-pass=admin -y
+drush site:install minimal --account-name=admin --account-pass=admin -y
 
 # Aplica el UUID exportado
 uuid=$(grep uuid conf/drupal/config/system.site.yml | awk '{print $2}')
-ddev drush cset system.site uuid "$uuid" -y
+drush cset system.site uuid "$uuid" -y
 
 ./vendor/bin/task build
 ./vendor/bin/task update
