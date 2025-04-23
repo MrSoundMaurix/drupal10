@@ -60,6 +60,10 @@ tasks:
   update:
     desc: "Runs the Drupal update process"
     cmds:
+      - echo "⚙️ Installing Drupal and setting UUID..."
+      - ./vendor/bin/drush site:install minimal --account-name=admin --account-pass=admin -y
+      - uuid=$(grep uuid conf/drupal/config/system.site.yml | awk '{print $2}')
+      - ./vendor/bin/drush cset system.site uuid "$uuid" -y
       - task: drupal:update
 
 # assets:
