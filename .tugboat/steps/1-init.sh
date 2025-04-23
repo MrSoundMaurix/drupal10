@@ -72,4 +72,5 @@ corepack enable
 nodejs -v | grep -q v$NODE_MAJOR
 
 
-composer install
+cd "${TUGBOAT_ROOT}/web"
+composer install --no-interaction --prefer-dist
