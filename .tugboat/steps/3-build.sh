@@ -6,6 +6,5 @@
 set -eux
 echo "Building..."
 
-# Ejecuta task
 ./vendor/bin/task build
 ./vendor/bin/task update

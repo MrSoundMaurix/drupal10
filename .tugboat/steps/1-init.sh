@@ -42,6 +42,13 @@ docker-php-ext-install gd
 # of GD. Lullabot will likely be publishing an ADR recommending it too.
 apt-get install -y imagemagick
 
+# Install & enable memcached.
+apt-get --yes install libssl-dev
+apt-get --yes --no-install-recommends install libmemcached-dev
+yes '' | pecl install memcached
+docker-php-ext-enable memcached
+
+
 # Install node
 apt-get install -y ca-certificates gnupg
 mkdir -p /etc/apt/keyrings
