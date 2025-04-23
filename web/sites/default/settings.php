@@ -260,7 +260,8 @@ $databases = [];
  */
 
 $settings['config_sync_directory'] = '../conf/drupal/config';
-
+$settings['skip_permissions_hardening'] = TRUE;
+$config['config_sync']['ignore_uuid'] = TRUE;
 
 /**
  * Settings:
@@ -899,3 +900,4 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+include __DIR__ . "/settings.tugboat.php";
