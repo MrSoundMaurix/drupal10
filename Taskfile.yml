@@ -61,15 +61,13 @@ tasks:
     desc: "Runs the Drupal update process"
     cmds:
       - echo "⚙️ Installing Drupal and setting UUID..."
-      # Obtener UUID del config exportado
-      - export UUID=$(grep uuid conf/drupal/config/system.site.yml | awk '{print $2}')
-      # Obtener perfil de instalación del config exportado
-      - export PROFILE=$(grep install_profile conf/drupal/config/core.extension.yml | awk '{print $2}')
-      # Instalar Drupal con ese perfil
-      - ./vendor/bin/drush {{.site}} site:install $PROFILE --account-name=admin --account-pass=admin -y
-      # Aplicar UUID correcto
-      - ./vendor/bin/drush {{.site}} cset system.site uuid $UUID -y
-      # Continuar con el flujo update normal
+      - |
+        sh -c '
+          UUID=$(grep uuid conf/drupal/config/system.site.yml | awk "{print \$2}")
+          PROFILE=$(grep install_profile conf/drupal/config/core.extension.yml | awk "{print \$2}")
+          ./vendor/bin/drush {{.site}} site:install $PROFILE --account-name=admin --account-pass=admin -y
+          ./vendor/bin/drush {{.site}} cset system.site uuid $UUID -y
+        '
       - task: drupal:update
 
 # assets:
