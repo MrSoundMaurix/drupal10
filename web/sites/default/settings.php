@@ -260,7 +260,8 @@ $databases = [];
  */
 
 $settings['config_sync_directory'] = '../conf/drupal/config';
-
+$settings['skip_permissions_hardening'] = TRUE;
+$config['config_sync']['ignore_uuid'] = TRUE;
 
 /**
  * Settings:
