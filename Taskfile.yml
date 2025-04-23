@@ -67,6 +67,9 @@ tasks:
           PROFILE=$(grep install_profile conf/drupal/config/core.extension.yml | awk "{print \$2}")
           ./vendor/bin/drush {{.site}} site:install $PROFILE --account-name=admin --account-pass=admin -y
           ./vendor/bin/drush {{.site}} cset system.site uuid $UUID -y
+          # 🔥 Borrar entidades que bloquean la importación
+          ./vendor/bin/drush {{.site}} entity:delete shortcut_set default || true
+          ./vendor/bin/drush {{.site}} entity:delete shortcut default || true
         '
       - task: drupal:update
 
