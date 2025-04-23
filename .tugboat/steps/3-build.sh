@@ -13,5 +13,13 @@ drush site:install minimal --account-name=admin --account-pass=admin -y
 uuid=$(grep uuid conf/drupal/config/system.site.yml | awk '{print $2}')
 drush cset system.site uuid "$uuid" -y
 
+# Exporta para forzar que tome el nuevo UUID como válido
+drush config:export -y
+
+# Elimina entidades conflictivas (si existen)
+drush entity:delete shortcut_set || true
+drush entity:delete shortcut || true
+
+# Ejecuta el build y update
 ./vendor/bin/task build
 ./vendor/bin/task update
