@@ -105,12 +105,11 @@
             ]
         },
         "drainpipe": {
-            "github": [],
-            "tugboat": {}
-
+            "github": []
         }
     },
     "require-dev": {
+        "drupal/memcache": "^2.7",
         "lullabot/drainpipe-dev": "^3.12"
     }
 }

@@ -881,6 +881,17 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 // Automatically generated include for settings managed by ddev.
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
   include __DIR__ . '/settings.ddev.php';
+
+  if (
+    extension_loaded('memcached') &&
+    file_exists(DRUPAL_ROOT . '/modules/contrib/memcache') &&
+    is_dir(DRUPAL_ROOT . '/modules/contrib/memcache')
+  ) {
+    $settings['memcache']['servers'] = ['memcached:11211' => 'default'];
+    $settings['memcache']['bins'] = ['default' => 'default'];
+    $settings['cache']['default'] = 'cache.backend.memcache';
+  }
+
 }
 
 /**
