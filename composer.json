@@ -19,6 +19,7 @@
         "drupal/core-composer-scaffold": "^10.4",
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
+        "drupal/redis": "^1.9",
         "drush/drush": "^13.4",
         "lullabot/drainpipe": "^3.12"
     },

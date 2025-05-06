@@ -901,3 +901,8 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 include __DIR__ . "/settings.tugboat.php";
+
+// Include settings required for Redis cache.
+if ((file_exists(__DIR__ . '/settings.ddev.redis.php') && getenv('IS_DDEV_PROJECT') == 'true')) {
+  include __DIR__ . '/settings.ddev.redis.php';
+}

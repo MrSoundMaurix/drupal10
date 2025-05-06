@@ -16,6 +16,7 @@ services:
 
     depends:
       - mariadb
+      - redis
 
     commands:
       init: ./.tugboat/steps/1-init.sh
@@ -24,3 +25,6 @@ services:
 
   mariadb:
     image: tugboatqa/mariadb:10.11
+
+  redis:
+    image: tugboatqa/redis:7}
